@@ -1,6 +1,10 @@
 import './ContactPage.css'
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
-function sendMail(){
+//npm install emailjs-com --save
+
+function sendEmail(){
   let parms = {
       name : document.querySelector(".name"),
       email : document.querySelector(".email"),
@@ -12,7 +16,7 @@ function sendMail(){
 
 function ContactPage() {
   return(
-    <div className="email-box">
+    <div className="contact-form">
         <div className="title"><h1>Questions or Concerns? Contact Us!</h1></div>
         <div className="email-subject">
             <input type="name" placeholder="Name" className="name" />
@@ -20,7 +24,7 @@ function ContactPage() {
         </div>
         <input type="text" placeholder="Subject" className="subject" />
         <textarea type="text" placeholder="Message" className="message-box"></textarea>
-        <button className="send-mail" type="submit" onSubmit={sendMail()}>Send</button>
+        <button className="send-mail" type="submit" onClick={sendEmail}>Send</button>
     </div>
   );
 }
