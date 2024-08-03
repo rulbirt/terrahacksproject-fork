@@ -1,5 +1,15 @@
 import './ContactPage.css'
 
+function sendMail(){
+  let parms = {
+      name : document.querySelector(".name"),
+      email : document.querySelector(".email"),
+      subject : document.querySelector(".subject"),
+      message : document.querySelector(".message-box")
+  }
+  emailjs.send("service_39gg8vq", "template_3h6z65x", parms).then(alert("Email Sent!!!"))
+}
+
 function ContactPage() {
   return(
     <div className="email-box">
@@ -10,8 +20,7 @@ function ContactPage() {
         </div>
         <input type="text" placeholder="Subject" className="subject" />
         <textarea type="text" placeholder="Message" className="message-box"></textarea>
-        <button className="send-mail">Send</button>
-        <div className="warning"></div>
+        <button className="send-mail" type="submit" onSubmit={sendMail()}>Send</button>
     </div>
   );
 }
